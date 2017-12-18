@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Catriona\'s Magic Word Counter</string>
+    <string name="input_sentence">Write sentence</string>
+    <string name="submit_button">Submit</string>
+</resources>
