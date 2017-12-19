@@ -1,5 +1,6 @@
 package com.example.catriona.wordcounter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,12 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class WordCounter extends AppCompatActivity {
+public class WordCounterActivity extends AppCompatActivity {
 
     EditText sentenceInput;
     Button countButton;
-    TextView wordCount;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,6 @@ public class WordCounter extends AppCompatActivity {
 
         sentenceInput = findViewById(R.id.input_sentence_box);
         countButton = findViewById(R.id.submit_button);
-        wordCount = findViewById(R.id.answer_box);
     }
 
     public void onSubmitButtonPressed(View button){
@@ -34,9 +32,12 @@ public class WordCounter extends AppCompatActivity {
         Sentence sentence = new Sentence(inputPhrase);
         int count = (sentence.countWords());
         String countAsString = Integer.toString(count);
-        String output = "There were " + countAsString + " words!";
-        wordCount.setText(output);
-    }
 
+        Intent newIntent = new Intent(this, AnswerActivity.class);
+        newIntent.putExtra("wordCount", "There are " + countAsString + " words!");
+        newIntent.putExtra("inputSentence", "Your sentence was: " + inputPhrase);
+
+        startActivity(newIntent);
+    }
 
 }
