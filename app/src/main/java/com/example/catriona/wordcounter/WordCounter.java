@@ -28,9 +28,14 @@ public class WordCounter extends AppCompatActivity {
 
     public void onSubmitButtonPressed(View button){
         Log.d(getClass().toString(),"submitButton pressed");
-        String sentence = sentenceInput.getText().toString();
-        Log.d(getClass().toString(), "the text was: " + sentence);
-        wordCount.setText("3");
+        String inputPhrase = sentenceInput.getText().toString();
+        Log.d(getClass().toString(), "the text was: " + inputPhrase);
+
+        Sentence sentence = new Sentence(inputPhrase);
+        int count = (sentence.countWords());
+        String countAsString = Integer.toString(count);
+        String output = "There were " + countAsString + " words!";
+        wordCount.setText(output);
     }
 
 

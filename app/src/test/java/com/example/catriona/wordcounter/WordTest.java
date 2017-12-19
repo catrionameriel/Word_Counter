@@ -18,6 +18,7 @@ public class WordTest {
     public void before(){
         word = new Word("jump");
         word2 = new Word("Help");
+
     }
 
     @Test
@@ -34,5 +35,4 @@ public class WordTest {
     public void canGetSizeOfWordEvenIfCapital(){
         assertEquals(4, word2.calculateSizeOfWord());
     }
-
 }
